@@ -6,7 +6,6 @@
 </h2>
 
 <%= form_tag({:controller => "export", :action => "finish"}, :class => "export_form") do %>
-  <%= hidden_field_tag 'format', 'osm' %>
 
   <div class='export_area_inputs'>
     <div class='export_boxy' style="border: 1px solid #ccc;">
@@ -27,6 +26,17 @@
     <p class="warning">
       <%= t'export.start.too_large.body' %>
     </p>
+  </div>
+
+  <div>
+    <label for="format">Data type:</label>
+    <select id="format" name="format">
+      <option value="osm">Map data (OSM XML)</option>
+      <option value="notes_rss">Notes (RSS)</option>
+      <option value="notes_xml">Notes (XML)</option>
+      <option value="notes_json">Notes (JSON)</option>
+      <option value="notes_gpx">Notes (GPX)</option>
+    </select>
   </div>
 
   <div id="export_commit">
