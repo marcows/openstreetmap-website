@@ -20,6 +20,10 @@ OSM.Export = function(map) {
     validateControls();
   }
 
+  function formatChanged() {
+    validateControls();
+  }
+
   function enableFilter(e) {
     e.preventDefault();
 
@@ -49,12 +53,12 @@ OSM.Export = function(map) {
   }
 
   function validateControls() {
-    $("#export_osm_too_large").toggle(getBounds().getSize() > OSM.MAX_REQUEST_AREA);
-    $("#export_commit").toggle(getBounds().getSize() < OSM.MAX_REQUEST_AREA);
+    $("#export_osm_too_large").toggle(getBounds().getSize() > OSM.MAX_REQUEST_AREA && $("#format").val() == "osm");
+    $("#export_commit").toggle(getBounds().getSize() < OSM.MAX_REQUEST_AREA || $("#format").val() != "osm");
   }
 
   function checkSubmit(e) {
-    if (getBounds().getSize() > OSM.MAX_REQUEST_AREA) e.preventDefault();
+    if (getBounds().getSize() > OSM.MAX_REQUEST_AREA && $("#format").val() == "osm") e.preventDefault();
   }
 
   page.pushstate = page.popstate = function(path) {
@@ -68,6 +72,7 @@ OSM.Export = function(map) {
       .on("moveend", update);
 
     $("#maxlat, #minlon, #maxlon, #minlat").change(boundsChanged);
+    $("#format").change(formatChanged);
     $("#drag_box").click(enableFilter);
     $(".export_form").on("submit", checkSubmit);
 
