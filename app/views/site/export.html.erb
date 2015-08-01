@@ -19,9 +19,6 @@
     <a id='drag_box' href="#"><%= t'export.start.manually_select' %></a>
   </div>
 
-  <h4><%= t'export.start.licence' %></h4>
-  <p><%= raw t 'export.start.export_details' %></p>
-
   <div>
     <label for="format"><%= t'export.start.format_to_export' %></label>
     <select id="format" name="format">
@@ -32,6 +29,9 @@
       <option value="notes_gpx"><%= t'export.start.notes_data' %> (GPX)</option>
     </select>
   </div>
+
+  <h4><%= t'export.start.licence' %></h4>
+  <p><%= raw t 'export.start.export_details' %></p>
 
   <div id="export_osm_too_large">
     <p class="warning">
