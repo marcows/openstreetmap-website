@@ -53,12 +53,12 @@ OSM.Export = function(map) {
   }
 
   function validateControls() {
-    $("#export_osm_too_large").toggle(getBounds().getSize() > OSM.MAX_REQUEST_AREA && $("#format").val() == "osm");
+    $("#export_osm_too_large").toggle(getBounds().getSize() > OSM.MAX_REQUEST_AREA && $("#format").val() === "osm");
     $("#export_commit").toggle(getBounds().getSize() < OSM.MAX_REQUEST_AREA || $("#format").val() != "osm");
   }
 
   function checkSubmit(e) {
-    if (getBounds().getSize() > OSM.MAX_REQUEST_AREA && $("#format").val() == "osm") e.preventDefault();
+    if (getBounds().getSize() > OSM.MAX_REQUEST_AREA && $("#format").val() === "osm") e.preventDefault();
   }
 
   page.pushstate = page.popstate = function(path) {
