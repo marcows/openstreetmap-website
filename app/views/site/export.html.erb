@@ -23,13 +23,13 @@
   <p><%= raw t 'export.start.export_details' %></p>
 
   <div>
-    <label for="format">Data type:</label>
+    <label for="format"><%= t'export.start.format_to_export' %></label>
     <select id="format" name="format">
-      <option value="osm">Map data (OSM XML)</option>
-      <option value="notes_rss">Notes (RSS)</option>
-      <option value="notes_xml">Notes (XML)</option>
-      <option value="notes_json">Notes (JSON)</option>
-      <option value="notes_gpx">Notes (GPX)</option>
+      <option value="osm"><%= t'export.start.osm_xml_data' %></option>
+      <option value="notes_rss"><%= t'export.start.notes_data' %> (RSS)</option>
+      <option value="notes_xml"><%= t'export.start.notes_data' %> (XML)</option>
+      <option value="notes_json"><%= t'export.start.notes_data' %> (JSON)</option>
+      <option value="notes_gpx"><%= t'export.start.notes_data' %> (GPX)</option>
     </select>
   </div>
 
